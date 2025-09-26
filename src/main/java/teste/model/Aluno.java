@@ -31,5 +31,5 @@ public class Aluno implements Serializable {
 	private Long id;	
 	private String Prontuario;
 	private String nome;
-	
+	private String Sobrenome;
 }

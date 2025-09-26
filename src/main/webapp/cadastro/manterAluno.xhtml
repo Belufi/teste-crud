@@ -43,7 +43,12 @@
 				<p:column headerText="Nome"
 					filterBy="#{aluno.nome}" sortBy="#{aluno.salario}">
 					<h:outputText value="#{aluno.nome}" />
-				</p:column>				
+				</p:column>	
+				
+				<p:column headerText="Sobrenome"
+					filterBy="#{aluno.sobrenome}" sortBy="#{aluno.salario}">
+					<h:outputText value="#{aluno.sobrenome}" />
+				</p:column>		
 
 				<p:column headerText="Operações">					
 					
@@ -84,6 +89,10 @@
 				
 			<p:outputLabel for="nome" value="Nome: " />
 			<p:inputText id="nome" value="#{manterAlunoBean.aluno.nome}" 
+				required="true"/>
+
+				<p:outputLabel for="Sobrenome" value="Sobrenome: " />
+			<p:inputText id="Sobrenome" value="#{manterAlunoBean.aluno.sobrenome}" 
 				required="true"/>
 				
 			<p:commandButton icon="pi pi-save" id="salvarButton"
