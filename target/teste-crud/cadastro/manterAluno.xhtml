@@ -35,22 +35,13 @@
 					<h:outputText value="#{aluno.id}" />
 				</p:column>	
 
-				<p:column headerText="prontuario"
-					filterBy="#{aluno.prontuario}" sortBy="#{aluno.salario}">
-					<h:outputText value="#{aluno.prontuario}" />
-				</p:column>			
-
 				<p:column headerText="Nome"
 					filterBy="#{aluno.nome}" sortBy="#{aluno.salario}">
 					<h:outputText value="#{aluno.nome}" />
 				</p:column>	
 				
-				<p:column headerText="Sobrenome"
-					filterBy="#{aluno.sobrenome}" sortBy="#{aluno.salario}">
-					<h:outputText value="#{aluno.sobrenome}" />
-				</p:column>		
 
-				<p:column headerText="Operações">					
+				<p:column headerText="Situação">					
 					
 					<p:commandButton id="cb1" icon="pi pi-pencil" title="Editar"	    				
 		            	oncomplete="PF('editarDialogWidgetVar').show()"
@@ -59,6 +50,21 @@
 		            	<f:setPropertyActionListener target="#{manterAlunoBean.aluno}" 
 							value="#{aluno}" />
 	            	</p:commandButton>
+
+					<div class="card">
+						<h:form>
+							<p:growl id="msg"/>
+
+							<h5 class="mt-0"></h5>
+							<p:selectBooleanCheckbox value="#{selectBooleanView.value1}" itemLabel="Desativado"/>
+
+							<h5></h5>
+							<p:selectBooleanCheckbox value="#{selectBooleanView.value2}" itemLabel="Ativo">
+								<p:ajax update="msg" listener="#{selectBooleanView.addMessage}"/>
+								
+							</p:selectBooleanCheckbox>
+						</h:form>
+					</div>
 
 					<p:commandButton icon="pi pi-trash"  title="Excluir"
 						onclick="PF('confirmacaoExclusao').show();"
@@ -83,18 +89,10 @@
 			<p:outputLabel for="id" value="Id: " />
 			<p:outputLabel id="id" value="#{manterAlunoBean.aluno.id}" />
 
-			<p:outputLabel for="prontuario" value="prontuario: " />
-			<p:inputText id="prontuario" value="#{manterAlunoBean.aluno.prontuario}" 
-				required="true"/>
-				
 			<p:outputLabel for="nome" value="Nome: " />
-			<p:inputText id="nome" value="#{manterAlunoBean.aluno.nome}" 
-				required="true"/>
+			<p:inputText id="nome" value="#{manterAlunoBean.aluno.nome}" />
 
-				<p:outputLabel for="Sobrenome" value="Sobrenome: " />
-			<p:inputText id="Sobrenome" value="#{manterAlunoBean.aluno.sobrenome}" 
-				required="true"/>
-				
+
 			<p:commandButton icon="pi pi-save" id="salvarButton"
 				value="Salvar" title="Grava dados do aluno"
 				actionListener="#{manterAlunoBean.salvar}"

@@ -29,7 +29,7 @@ public class Aluno implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;	
-	private String Prontuario;
 	private String nome;
-	private String Sobrenome;
+	private boolean ativo;
+	
 }
