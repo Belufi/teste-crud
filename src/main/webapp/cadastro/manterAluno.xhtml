@@ -45,7 +45,10 @@
 					<h:outputText value="#{aluno.ativo}" />
 				</p:column>				
 
-				<p:column headerText="Operações">					
+				<p:column headerText="Atividade">		
+					
+					
+
 					
 					<p:commandButton id="cb1" icon="pi pi-pencil" title="Editar"	    				
 		            	oncomplete="PF('editarDialogWidgetVar').show()"
@@ -55,20 +58,7 @@
 							value="#{aluno}" />
 	            	</p:commandButton>
 
-					<div class="card">
-						<h:form>
-							<p:growl id="msg"/>
-
-							<h5 class="mt-0"></h5>
-							<p:selectBooleanCheckbox value="#{selectBooleanView.value1}" itemLabel="Desativado"/>
-
-							<h5></h5>
-							<p:selectBooleanCheckbox value="#{selectBooleanView.value2}" itemLabel="Ativo">
-								<p:ajax update="msg" listener="#{selectBooleanView.addMessage}"/>
-								
-							</p:selectBooleanCheckbox>
-						</h:form>
-					</div>
+				
 
 					<p:commandButton icon="pi pi-trash"  title="Excluir"
 						onclick="PF('confirmacaoExclusao').show();"
@@ -97,7 +87,9 @@
 			<p:inputText id="nome" value="#{manterAlunoBean.aluno.nome}" />
 
 			<p:outputLabel for="ativo" value="Situação: " />
-			<p:inputText id="ativo" value="#{manterAlunoBean.aluno.ativo}" />
+			<p:selectBooleanCheckbox value="#{selectBooleanView.value1}" itemLabel="Basic"/>
+
+
 
 			<p:commandButton icon="pi pi-save" id="salvarButton"
 				value="Salvar" title="Grava dados do aluno"
